@@ -43,4 +43,14 @@ public class PasswordStrengthMeterTest {
         // 단, 숫자를 포함하지 않고 나머지 조건을 충족하는 경우에 대한 테스트를 작성하자.
         assertStrength("ab!@ABqwer", PasswordStrength.NORMAL);
     }
+
+    @Test
+    void nullInput_Then_Invalid() {
+        assertStrength(null, PasswordStrength.INVALID);
+    }
+
+    @Test
+    void emptyInput_Then_Invalid() {
+        assertStrength("", PasswordStrength.INVALID);
+    }
 }
