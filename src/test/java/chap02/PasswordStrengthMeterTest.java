@@ -60,4 +60,10 @@ public class PasswordStrengthMeterTest {
         // 단, 대문자를 포함하지 않고 나머지 조건을 충족하는 경우에 대한 테스트를 작성하자.
         assertStrength("ab12!@df", PasswordStrength.NORMAL);
     }
+
+    @Test
+    void meetsOnlyLengthCriteria_Then_Weak() {
+        // 암호 강도가 약함인 경우에 대한 테스트를 작성하자.
+        assertStrength("abdefghi", PasswordStrength.WEAK);
+    }
 }

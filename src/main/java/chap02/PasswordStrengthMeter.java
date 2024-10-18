@@ -4,7 +4,8 @@ public class PasswordStrengthMeter {
     public PasswordStrength meter(String s) {
         if (s == null || s.isEmpty()) return PasswordStrength.INVALID;
 
-        if (s.length() < 8) {
+        boolean lengthEnough = s.length() >= 8;
+        if (!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
 
