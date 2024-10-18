@@ -3,10 +3,14 @@ package chap02;
 public class PasswordStrengthMeter {
     public PasswordStrength meter(String s) {
         if (s == null || s.isEmpty()) return PasswordStrength.INVALID;
+        boolean lengthEnough = s.length() >= 8;
         boolean containsNum = meetsContainingNumberCriteria(s);
         boolean containsUpp = meetsContainingUppercaseCriteria(s);
 
-        boolean lengthEnough = s.length() >= 8;
+        if (lengthEnough && !containsNum && !containsUpp) {
+            return PasswordStrength.WEAK;
+        }
+
         if (!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
