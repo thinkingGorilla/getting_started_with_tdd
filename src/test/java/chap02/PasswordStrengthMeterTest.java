@@ -80,4 +80,10 @@ public class PasswordStrengthMeterTest {
         // 단, 대문자 포함 조건만을 충족하는 경우에 대한 테스트를 작성하자.
         assertStrength("ABZEF", PasswordStrength.WEAK);
     }
+
+    @Test
+    void meetsNoCriteria_Then_Weak() {
+        // 아무 조건도 충족하지 않는 경우에 대한 테스트를 작성하자.
+        assertStrength("abc", PasswordStrength.WEAK);
+    }
 }
