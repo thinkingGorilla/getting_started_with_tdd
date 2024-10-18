@@ -73,4 +73,11 @@ public class PasswordStrengthMeterTest {
         // 단, 숫자 포함 조건만을 충족하는 경우에 대한 테스트를 작성하자.
         assertStrength("12345", PasswordStrength.WEAK);
     }
+
+    @Test
+    void meetsOnlyUpperCriteria_Then_Weak() {
+        // 암호 강도가 약함인 경우에 대한 테스트를 작성하자.
+        // 단, 대문자 포함 조건만을 충족하는 경우에 대한 테스트를 작성하자.
+        assertStrength("ABZEF", PasswordStrength.WEAK);
+    }
 }
