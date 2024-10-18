@@ -20,7 +20,11 @@ public class PasswordStrengthMeterTest {
     void meetsAllCriteria_Then_Strong() {
         // 모든 규칙을 지키는 테스트를 작성하자.
         PasswordStrengthMeter meter = new PasswordStrengthMeter();
+
         PasswordStrength result = meter.meter("ab12!@AB");
         assertEquals(PasswordStrength.STRONG, result);
+
+        PasswordStrength result2 = meter.meter("abc1!Add");
+        assertEquals(PasswordStrength.STRONG, result2);
     }
 }
