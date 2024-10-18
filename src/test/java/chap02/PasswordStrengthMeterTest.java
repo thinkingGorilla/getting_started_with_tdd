@@ -53,4 +53,11 @@ public class PasswordStrengthMeterTest {
     void emptyInput_Then_Invalid() {
         assertStrength("", PasswordStrength.INVALID);
     }
+
+    @Test
+    void meetsOtherCriteria_except_for_Uppercase_Then_Normal() {
+        // 암호 강도가 보통인 경우에 대한 테스트를 작성하자.
+        // 단, 대문자를 포함하지 않고 나머지 조건을 충족하는 경우에 대한 테스트를 작성하자.
+        assertStrength("ab12!@df", PasswordStrength.NORMAL);
+    }
 }
