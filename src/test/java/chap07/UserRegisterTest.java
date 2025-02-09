@@ -42,4 +42,14 @@ public class UserRegisterTest {
             }
         );
     }
+
+    @DisplayName("같은 ID가 없으면 가입 성공함")
+    @Test
+    void noDupId_RegisterSuccess() {
+        userRegister.register("id", "pw", "email@email.com");
+
+        User user = fakeUserRepository.findById("id");
+        assertEquals("id", user.getId());
+        assertEquals("email@email.com", user.getEmail());
+    }
 }
